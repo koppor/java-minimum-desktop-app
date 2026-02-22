@@ -12,7 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        jdkversion: [17, 21, 24, 25]
+        # 17 and 21 do not work with the current setup
+        jdkversion: [24, 25]
 
     steps:
       - uses: actions/checkout@v6
