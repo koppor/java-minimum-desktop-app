@@ -4,6 +4,17 @@ To demonstrate how easy is to build a desktop application with Java.
 
 Demonstrates JDK24 and JDK25 for creating a `.deb` package.
 
+## Issue
+
+This app has two icons:
+
+- [res/FooClient.png](./res/FooClient.png) - png with one as number
+- [res/two.png](./res/two.png) - png with two as number
+
+`deb` should use `two.png`, but uses 1:
+
+![/opt/fooclient/lib showing one instead of two](opt-fooclient-lib.png)
+
 ## Hints
 
 For a smooth building experience, it is recommended that you follow these rules on where and how to check out the source code.
