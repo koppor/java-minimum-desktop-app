@@ -2,7 +2,7 @@
 
 To demonstrate how easy is to build a desktop application with Java.
 
-Demonstrates JDK24 and JDK25.
+Demonstrates JDK24 and JDK25 for creating a `.deb` package.
 
 ## Hints
 
