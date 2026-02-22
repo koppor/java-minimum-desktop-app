@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
+        os: [ubuntu-latest, ubuntu-24.04-arm] # TODO: macos-latest, windows-latest
         # 17 and 21 do not work with the current setup
         jdkversion: [24, 25]
       fail-fast: false
@@ -28,6 +28,6 @@ jobs:
       - name: Upload FooClient
         uses: actions/upload-artifact@v4
         with:
-          name: FooClient-jdk${{ matrix.jdkversion }}
+          name: FooClient-jdk-${{ matrix.jdkversion }}-${{ matrix.os }}
           path: "*.deb"
           if-no-files-found: error
