@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: koppor/gg/action@patch-1
+      - uses: koppor/gg/action@af034fd18934f51f117a1bb72102c5cbd04a96e0
 
       - name: Build (JDK ${{ matrix.jdkversion }})
         run: gg.cmd run:java@${{ matrix.jdkversion }} bash ./build.sh
