@@ -1,0 +1,35 @@
+name: check (GA, EA)
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        jdkversion: [GA, EA]
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: 'Set up latest JDK ${{ matrix.jdkversion }} from jdk.java.net'
+        uses: oracle-actions/setup-java@v1
+        with:
+          website: jdk.java.net
+          release: ${{ matrix.jdkversion }}
+
+      - name: Build (JDK ${{ matrix.jdkversion }})
+        shell: bash
+        run: ./build.sh
+
+      - name: Upload FooClient
+        uses: actions/upload-artifact@v4
+        with:
+          name: FooClient-jdk${{ matrix.jdkversion }}
+          path: "*.deb"
+          if-no-files-found: error
