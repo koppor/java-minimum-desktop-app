@@ -13,12 +13,16 @@ For a smooth building experience, it is recommended that you follow these rules 
 
 ## How to build
 
-See .bat files.
+See `build.sh`.
 
-The javapackager will create the installer exe for this self-contained application. It consists of a single, installable bundle that contains the application and a copy of the JRE needed to run the application. When the application is installed, it behaves the in the same way as any native application.
+`jpacakge` will create the installer `deb` for this self-contained application. It consists of a single, installable bundle that contains the application and a copy of the JRE needed to run the application. When the application is installed, it behaves the in the same way as any native application.
 
 ## More to read
 
+* [jpackage](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jpackage.html)
+* [override jpackage resources](https://docs.oracle.com/en/java/javase/25/jpackage/override-jpackage-resources.html)
+* [`template.desktop`](https://github.com/openjdk/jdk/blob/a35945ae067ffd60d5f374060086650636ebd9de/src/jdk.jpackage/linux/classes/jdk/jpackage/internal/resources/template.desktop)
 * <https://docs.oracle.com/javase/tutorial/deployment/selfContainedApps/index.html>
 * <https://docs.oracle.com/javase/10/tools/javapackager.htm#JSWOR719>
 * <https://andrastornai.com/>
+* [JabRef#15180](https://github.com/JabRef/jabref/issues/15180) - missing icon at JabRef
