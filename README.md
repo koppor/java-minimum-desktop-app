@@ -8,12 +8,14 @@ Demonstrates JDK24 and JDK25 for creating a `.deb` package.
 
 This app has two icons:
 
-- [res/FooClient.png](./res/FooClient.png) - png with one as number
-- [res/two.png](./res/two.png) - png with two as number
+* [res/FooClient.png](./res/FooClient.png) - png with one as number
+* [res/two.png](./res/two.png) - png with two as number
 
 `deb` should use `two.png`, but uses 1:
 
 ![/opt/fooclient/lib showing one instead of two](opt-fooclient-lib.png)
+
+Note: On JDK24, the correct icon is used.
 
 ## Hints
 
