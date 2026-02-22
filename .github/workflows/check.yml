@@ -26,5 +26,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: FooClient-jdk${{ matrix.jdkversion }}
-          path: *.deb
+          path: "*.deb"
           if-no-files-found: error
