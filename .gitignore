@@ -1,4 +1,5 @@
 *.class
+*.deb
 *.jar
 *.iml
 *.exe
