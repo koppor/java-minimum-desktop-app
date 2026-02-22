@@ -1,0 +1,30 @@
+name: check
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        jdkversion: [17, 21, 24, 25]
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: eirikb/gg/action@main
+
+      - name: Build (JDK ${{ matrix.jdkversion }})
+        run: gg.cmd run:java@${{ matrix.jdkversion }} bash ./build.sh
+
+      - name: Upload FooClient
+        uses: actions/upload-artifact@v4
+        with:
+          name: FooClient-jdk${{ matrix.jdkversion }}
+          path: FooClient/
+          if-no-files-found: error
