@@ -1,8 +1,8 @@
-# Java Minimum Desktop App
+# Java Minimum Desktop App Examples
 
 To demonstrate how easy is to build a desktop application with Java.
 
-Demonstrates JDK24 and JDK25 for creating a `.deb` package.
+Demonstrates JDK24 and JDK25 for creating a `.deb` package and an `.msi` installer.
 
 ## Included MWEs
 
@@ -20,6 +20,10 @@ This app has two icons:
 Note: On JDK24, the correct icon is used.
 
 [JDK-8356048](https://bugs.openjdk.org/browse/JDK-8356048)
+
+### `mwe-win`
+
+Will be expanded to show [JDK-8278383](https://bugs.openjdk.org/browse/JDK-8278383).
 
 ## Hints
 
