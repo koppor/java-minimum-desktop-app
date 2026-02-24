@@ -4,7 +4,9 @@ To demonstrate how easy is to build a desktop application with Java.
 
 Demonstrates JDK24 and JDK25 for creating a `.deb` package.
 
-## Issue
+## Included MWEs
+
+### `mwe-deb-icon`
 
 This app has two icons:
 
@@ -29,12 +31,13 @@ For a smooth building experience, it is recommended that you follow these rules 
 You can quickly try out with [`gg.cmd`](https://github.com/eirikb/gg):
 
 ```bash
-./gg.cmd run:java@25 bash ./build.sh
+cd mwe-deb-icon
+../gg.cmd run:java@25 bash ./build.sh
 ```
 
 Replace `25` with the JDK version you want to try.
 
-For manual steps, see `build.sh`.
+For manual steps, see respective `build.sh`.
 
 `jpacakge` will create the installer `deb` for this self-contained application. It consists of a single, installable bundle that contains the application and a copy of the JRE needed to run the application. When the application is installed, it behaves the in the same way as any native application.
 
