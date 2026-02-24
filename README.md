@@ -19,6 +19,8 @@ This app has two icons:
 
 Note: On JDK24, the correct icon is used.
 
+[JDK-8356048](https://bugs.openjdk.org/browse/JDK-8356048)
+
 ## Hints
 
 For a smooth building experience, it is recommended that you follow these rules on where and how to check out the source code.
