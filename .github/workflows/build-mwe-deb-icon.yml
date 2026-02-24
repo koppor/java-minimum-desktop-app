@@ -24,7 +24,9 @@ jobs:
       - name: Build (JDK ${{ matrix.jdkversion }})
         if: matrix.jdkversion != 'GA' && matrix.jdkversion != 'EA'
         shell: bash
-        run: gg.cmd run:java@${{ matrix.jdkversion }} bash ./build.sh
+        run: |
+          cd mwe-deb-icon-jdk
+          gg.cmd run:java@${{ matrix.jdkversion }} bash ./build.sh
 
       - name: 'Set up latest JDK ${{ matrix.jdkversion }} from jdk.java.net'
         if: matrix.jdkversion == 'GA' || matrix.jdkversion == 'EA'
@@ -35,11 +37,13 @@ jobs:
       - name: Build (JDK ${{ matrix.jdkversion }})
         if: matrix.jdkversion == 'GA' || matrix.jdkversion == 'EA'
         shell: bash
-        run: ./build.sh
+        run: |
+          cd mwe-deb-icon-jdk
+          ./build.sh
 
       - name: Upload FooClient
         uses: actions/upload-artifact@v4
         with:
           name: mwe-deb-icon-jdk-${{ matrix.jdkversion }}-${{ matrix.os }}
-          path: "*.deb"
+          path: "mwe-deb-icon-jdk/*.deb"
           if-no-files-found: error
