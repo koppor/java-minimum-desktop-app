@@ -45,5 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mwe-win-jdk-${{ matrix.jdkversion }}-${{ matrix.os }}
-          path: "mwe-win/*.msi"
-          if-no-files-found: error
+          path: |
+            mwe-win/*.msi
+            mwe-win/tmp
+          if-no-files-found: warn
