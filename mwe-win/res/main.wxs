@@ -101,6 +101,9 @@
     <Icon Id="JpARPPRODUCTICON" SourceFile="$(var.JpIcon)"/>
     <?endif?>
 
+    <WixVariable Id="WixUIBannerBmp" Value="JabRefTopBanner.bmp"/>
+
+
     <UIRef Id="JpUI"/>
 
     <InstallExecuteSequence>
