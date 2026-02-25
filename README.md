@@ -1,29 +1,58 @@
-### Java Minimum Desktop App
+# Java Minimum Desktop App Examples
 
 To demonstrate how easy is to build a desktop application with Java.
 
-##### Prerequisites for development
+Demonstrates JDK24 and JDK25 for creating a `.deb` package and an `.msi` installer.
 
-* Windows 10 x64/
-* Oracle JDK 10.0.2 (http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html)
-* Oracle JDK 13-jpackage+36 (https://jdk.java.net/jpackage/)
-* Oracle JDK 14-jpackage+35 (https://jdk.java.net/jpackage/)
-* Inno Setup 5.6.1 (u) (http://www.jrsoftware.org/isdl.php)
+## Included MWEs
 
-##### Hints
+### `mwe-deb-icon`
+
+This app has two icons:
+
+* [res/FooClient.png](./res/FooClient.png) - png with one as number
+* [res/two.png](./res/two.png) - png with two as number
+
+`deb` should use `two.png`, but uses 1:
+
+![/opt/fooclient/lib showing one instead of two](opt-fooclient-lib.png)
+
+Note: On JDK24, the correct icon is used.
+
+[JDK-8356048](https://bugs.openjdk.org/browse/JDK-8356048)
+
+### `mwe-win`
+
+Will be expanded to show [JDK-8278383](https://bugs.openjdk.org/browse/JDK-8278383).
+
+## Hints
 
 For a smooth building experience, it is recommended that you follow these rules on where and how to check out the source code.
+
 * Do not check out the source code in a path which contains spaces or special characters. Chances are the build will not work. This is most likely to be an issue on Windows systems.
 * Do not check out the source code in a path which has a very long name or is nested many levels deep. Chances are you will hit an OS limitation during the build.
 
-##### How to build
+## How to build
 
-See .bat files.
+You can quickly try out with [`gg.cmd`](https://github.com/eirikb/gg):
 
-The javapackager will create the installer exe for this self-contained application. It consists of a single, installable bundle that contains the application and a copy of the JRE needed to run the application. When the application is installed, it behaves the in the same way as any native application.
+```bash
+cd mwe-deb-icon
+../gg.cmd run:java@25 bash ./build.sh
+```
 
-##### More to read
+Replace `25` with the JDK version you want to try.
 
-* https://docs.oracle.com/javase/tutorial/deployment/selfContainedApps/index.html
-* https://docs.oracle.com/javase/10/tools/javapackager.htm#JSWOR719
-* https://andrastornai.com/
+For manual steps, see respective `build.sh`.
+
+`jpacakge` will create the installer `deb` for this self-contained application. It consists of a single, installable bundle that contains the application and a copy of the JRE needed to run the application. When the application is installed, it behaves the in the same way as any native application.
+
+## More to read
+
+* [jpackage](https://docs.oracle.com/en/java/javase/25/docs/specs/man/jpackage.html)
+* [override jpackage resources](https://docs.oracle.com/en/java/javase/25/jpackage/override-jpackage-resources.html)
+* [`template.desktop`](https://github.com/openjdk/jdk/blob/a35945ae067ffd60d5f374060086650636ebd9de/src/jdk.jpackage/linux/classes/jdk/jpackage/internal/resources/template.desktop)
+* <https://docs.oracle.com/javase/tutorial/deployment/selfContainedApps/index.html>
+* <https://docs.oracle.com/javase/10/tools/javapackager.htm#JSWOR719>
+* <https://andrastornai.com/>
+* [JabRef#15180](https://github.com/JabRef/jabref/issues/15180) - missing icon at JabRef

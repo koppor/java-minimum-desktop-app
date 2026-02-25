@@ -1,7 +1,11 @@
 *.class
+*.deb
 *.jar
 *.iml
 *.exe
 *.msi
 *.log
 iamhomer/
+
+FooClient/
+tmp/
